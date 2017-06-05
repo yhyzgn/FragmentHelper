@@ -6,8 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
 import com.yhy.fmhelper.FmHelper;
-import com.yhy.fragmenthelper.R;
-import com.yhy.fragmenthelper.single.FirstFm;
+import com.yhy.fragmenthelper.single.FirstOnFm;
 
 /**
  * Created by HongYi Yan on 2017/5/26 9:57.
@@ -24,7 +23,11 @@ public class ArgsActivity extends AppCompatActivity {
 
         mHelper = new FmHelper.Builder(this, R.id.fl_container).build();
 
-        mHelper.open(new FirstFm());
+        Fragment fm = new FirstOnFm();
+        Bundle arg = new Bundle();
+        arg.putBoolean("isArgs", true);
+        fm.setArguments(arg);
+        mHelper.open(fm);
     }
 
     public void next(Fragment fm) {

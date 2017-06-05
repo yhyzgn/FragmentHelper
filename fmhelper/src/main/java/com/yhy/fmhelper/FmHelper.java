@@ -1,10 +1,12 @@
 package com.yhy.fmhelper;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentActivity;
+
+import com.yhy.fmhelper.manager.FmCbManager;
+import com.yhy.fmhelper.callback.OnFmCallBack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,10 +78,6 @@ public class FmHelper {
      * @return 当前对象
      */
     public FmHelper open(Fragment fm, boolean closeCurrent) {
-        if (null == fm.getArguments()) {
-            fm.setArguments(new Bundle());
-        }
-
         if (fm.isAdded()) {
             //如果已经添加过Fragment，就控制隐藏、移除和显示
             if (null != mCurrentFm) {
@@ -286,9 +284,10 @@ public class FmHelper {
 
         fm.setUserVisibleHint(false);
         if (null != mCurrentFm) {
-            //将关闭页面的参数设置给显示的页面，这样就能模拟onActivityResult()方法了
-            if (null != fm.getArguments() && null != mCurrentFm.getArguments()) {
-                mCurrentFm.getArguments().putAll(fm.getArguments());
+            //采用回调方式，模拟onActivityResult()方法了
+            OnFmCallBack lastFmCb = FmCbManager.getInstance().getCallBack(fm);
+            if (null != lastFmCb) {
+                FmCbManager.getInstance().getCallBack(mCurrentFm).onResult(lastFmCb.getResult());
             }
 
             //参数设置好后再回调setUserVisibleHint()方法

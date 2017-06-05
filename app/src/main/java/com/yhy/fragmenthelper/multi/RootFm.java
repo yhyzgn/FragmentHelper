@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.yhy.fmhelper.FmHelper;
 import com.yhy.fragmenthelper.R;
 import com.yhy.fragmenthelper.base.BaseFragment;
-import com.yhy.fragmenthelper.single.FirstFm;
+import com.yhy.fragmenthelper.single.FirstOnFm;
 
 /**
  * Created by HongYi Yan on 2017/5/26 10:26.
@@ -25,7 +25,7 @@ public class RootFm extends BaseFragment {
         View view = inflater.inflate(R.layout.fm_fm_root, container, false);
         mHelper = new FmHelper.Builder(this, R.id.fl_container).build();
 
-        open(new FirstFm());
+        open(new FirstOnFm());
 
         return view;
     }

@@ -70,6 +70,9 @@ public abstract class BaseFragment extends Fragment {
             if (mActivity instanceof SingleActivity) {
                 ((SingleActivity) mActivity).next(fm);
             } else if (mActivity instanceof ArgsActivity) {
+                Bundle arg = new Bundle();
+                arg.putBoolean("isArgs", true);
+                fm.setArguments(arg);
                 ((ArgsActivity) mActivity).next(fm);
             }
         }

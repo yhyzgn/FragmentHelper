@@ -40,7 +40,7 @@ publish {
     userOrg = 'yhyzgn'
     groupId = 'com.yhy.helper'
     artifactId = 'fm-helper'
-    publishVersion = '1.0.0'
+    publishVersion = '1.0.1'
     desc = 'Helper of Fragment.'
     website = 'https://github.com/yhyzgn/FragmentHelper'
 }

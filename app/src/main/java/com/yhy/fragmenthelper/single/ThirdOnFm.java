@@ -6,18 +6,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.yhy.fmhelper.manager.FmCbManager;
+import com.yhy.fmhelper.callback.OnFmCallBack;
 import com.yhy.fragmenthelper.R;
 import com.yhy.fragmenthelper.base.BaseFragment;
 
 /**
  * Created by HongYi Yan on 2017/5/26 10:13.
  */
-public class ThirdFm extends BaseFragment {
+public class ThirdOnFm extends BaseFragment implements OnFmCallBack {
 
     private TextView tvBack;
     private TextView tvNext;
+    private boolean isArgs;
 
     @Nullable
     @Override
@@ -30,19 +32,10 @@ public class ThirdFm extends BaseFragment {
 
     @Override
     protected void initData(@Nullable Bundle savedInstanceState) {
-    }
-
-    @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-
-        Bundle args = getArguments();
-        if (isVisibleToUser && null != args) {
-            String arg = args.getString("args");
-            Toast.makeText(mActivity, "接收到参数：" + arg, Toast.LENGTH_SHORT).show();
-        } else if (!isVisibleToUser) {
-            args.putString("args", "From 3");
+        if (null != getArguments()) {
+            isArgs = getArguments().getBoolean("isArgs");
         }
+        FmCbManager.getInstance().registFmCallBack(this, this);
     }
 
     @Override
@@ -57,8 +50,28 @@ public class ThirdFm extends BaseFragment {
         tvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open(new FirstFm());
+                open(new FirstOnFm());
             }
         });
+    }
+
+    @Override
+    public void onResult(Bundle args) {
+    }
+
+    @Override
+    public Bundle getResult() {
+        if (!isArgs) {
+            return null;
+        }
+        Bundle args = new Bundle();
+        args.putString("args", "From 3");
+        return args;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        FmCbManager.getInstance().unRegistFmCallBack(this, this);
     }
 }
