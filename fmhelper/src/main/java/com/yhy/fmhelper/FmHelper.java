@@ -285,12 +285,17 @@ public class FmHelper {
         fm.setUserVisibleHint(false);
         if (null != mCurrentFm) {
             //采用回调方式，模拟onActivityResult()方法了
+
+            //当前页面的回调对象，也就是将要重新显示的页面
+            OnFmCallBack currentFmCb = FmCbManager.getInstance().getCallBack(mCurrentFm);
+            //上一个页面的回调对象
             OnFmCallBack lastFmCb = FmCbManager.getInstance().getCallBack(fm);
-            if (null != lastFmCb) {
-                FmCbManager.getInstance().getCallBack(mCurrentFm).onResult(lastFmCb.getResult());
+
+            if (null != currentFmCb && null != lastFmCb) {
+                currentFmCb.onResult(lastFmCb.getResult());
             }
 
-            //参数设置好后再回调setUserVisibleHint()方法
+            //回调setUserVisibleHint()方法
             mCurrentFm.setUserVisibleHint(true);
         }
 

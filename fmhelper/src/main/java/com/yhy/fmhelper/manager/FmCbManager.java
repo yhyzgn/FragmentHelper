@@ -45,6 +45,6 @@ public class FmCbManager {
     }
 
     public OnFmCallBack getCallBack(Fragment fm) {
-        return mCbMap.containsKey(fm) ? mCbMap.get(fm) : null;
+        return null != fm && mCbMap.containsKey(fm) ? mCbMap.get(fm) : null;
     }
 }
