@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yhy.fmhelper.manager.FmCbManager;
 import com.yhy.fmhelper.callback.OnFmCallBack;
@@ -50,7 +51,8 @@ public class ThirdOnFm extends BaseFragment implements OnFmCallBack {
         tvNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                open(new FirstOnFm());
+//                open(new FirstOnFm());
+                Toast.makeText(mActivity, "没有下一页了...", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -65,13 +67,13 @@ public class ThirdOnFm extends BaseFragment implements OnFmCallBack {
             return null;
         }
         Bundle args = new Bundle();
-        args.putString("args", "From 3");
+        args.putString("args", "第3页回传的参数");
         return args;
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        FmCbManager.getInstance().unRegistFmCallBack(this, this);
+//        FmCbManager.getInstance().unRegistFmCallBack(this, this);
     }
 }

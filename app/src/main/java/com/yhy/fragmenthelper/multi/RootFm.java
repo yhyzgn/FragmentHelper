@@ -34,7 +34,6 @@ public class RootFm extends BaseFragment {
     protected void initData(@Nullable Bundle savedInstanceState) {
     }
 
-
     public void open(Fragment fm) {
         mHelper.open(fm);
     }

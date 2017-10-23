@@ -21,7 +21,9 @@ public class SingleActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_fm_container);
 
-        mHelper = new FmHelper.Builder(this, R.id.fl_container).build();
+        mHelper = new FmHelper.Builder(this, R.id.fl_container)
+                .animate(R.anim.helper_slide_in_right, R.anim.helper_slide_out_left)
+                .build();
 
         mHelper.open(new FirstOnFm());
     }

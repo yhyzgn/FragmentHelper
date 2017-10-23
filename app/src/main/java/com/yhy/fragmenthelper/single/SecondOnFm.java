@@ -71,7 +71,7 @@ public class SecondOnFm extends BaseFragment implements OnFmCallBack {
             return null;
         }
         Bundle args = new Bundle();
-        args.putString("args", "From 2");
+        args.putString("args", "第2页回传的参数");
         return args;
     }
 
