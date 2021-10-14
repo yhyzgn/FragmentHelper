@@ -1,15 +1,16 @@
 package com.yhy.fragmenthelper.single;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.yhy.fmhelper.manager.FmCbManager;
+import androidx.annotation.Nullable;
+
 import com.yhy.fmhelper.callback.OnFmCallBack;
+import com.yhy.fmhelper.manager.FmCbManager;
 import com.yhy.fragmenthelper.R;
 import com.yhy.fragmenthelper.base.BaseFragment;
 

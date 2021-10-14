@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FragmentHelper.iml" filepath="$PROJECT_DIR$/FragmentHelper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/fmhelper/fmhelper.iml" filepath="$PROJECT_DIR$/fmhelper/fmhelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/FragmentHelper.iml" filepath="$PROJECT_DIR$/.idea/modules/FragmentHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/FragmentHelper.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/FragmentHelper.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/helper/FragmentHelper.helper.iml" filepath="$PROJECT_DIR$/.idea/modules/helper/FragmentHelper.helper.iml" />
     </modules>
   </component>
 </project>
